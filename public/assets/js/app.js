@@ -373,7 +373,7 @@ export const updateWeather = function ( lat, lon )
 
       hourlySection.innerHTML = `
         <h2 class="title-2">Today at</h2>
-        <div class="slider-container">
+        <div class="slider-container slider-inside">
           <ul class="slider-list" data-temp></ul>
           <ul class="slider-list" data-wind></ul>
         </div>

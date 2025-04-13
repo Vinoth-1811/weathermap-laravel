@@ -3,7 +3,7 @@
 \*-----------------------------------*/
 
 /**
- * copyright 2023 codewithsadee
+ * copyright 2025 codewithvinoth
  */
 
 
@@ -760,6 +760,9 @@
     margin-block: 12px;
   }
 
+  .slider-inside {
+    padding: 10px 10px 10px 10px;
+  }
 
 
 
@@ -845,7 +848,6 @@
   .footer .body-3:last-child {
     gap: 6px;
   }
-
 
 
 
