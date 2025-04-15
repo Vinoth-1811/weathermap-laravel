@@ -34,15 +34,18 @@ document.addEventListener( 'DOMContentLoaded', () =>
     // Show cursors when mouse enters the window
     document.addEventListener( 'mouseenter', () =>
     {
-      cursorDot.style.opacity = '1';
-      cursorOutline.style.opacity = '1';
+        if (cursorDot) cursorDot.style.opacity = '1';
+        if (cursorOutline) cursorOutline.style.opacity = '1';
+
+    //   cursorDot.style.opacity = '1';
+    //   cursorOutline.style.opacity = '1';
     } );
 
     // Hide cursors when mouse leaves the window
     document.addEventListener( 'mouseleave', () =>
     {
-      cursorDot.style.opacity = '0';
-      cursorOutline.style.opacity = '0';
+        if (cursorDot) cursorDot.style.opacity = '0';
+        if (cursorOutline) cursorOutline.style.opacity = '0';
     } );
 
     // Update cursor position
@@ -54,14 +57,20 @@ document.addEventListener( 'DOMContentLoaded', () =>
         e.clientX <= window.innerWidth &&
         e.clientY <= window.innerHeight )
       {
-        cursorDot.style.opacity = '1';
-        cursorOutline.style.opacity = '1';
+        // cursorDot.style.opacity = '1';
+        if (cursorDot) cursorDot.style.opacity = '1';
+        if (cursorOutline) cursorDot.style.opacity = '1';
+        // cursorOutline.style.opacity = '1';
 
         // Update position
-        cursorDot.style.left = e.clientX + 'px';
-        cursorDot.style.top = e.clientY + 'px';
-        cursorOutline.style.left = e.clientX + 'px';
-        cursorOutline.style.top = e.clientY + 'px';
+        if (cursorDot) cursorDot.style.left = e.clientX + 'px';
+        if (cursorDot) cursorDot.style.top = e.clientY + 'px';
+        if (cursorOutline) cursorOutline.style.top = e.clientY + 'px';
+        if (cursorOutline) cursorOutline.style.left = e.clientX + 'px';
+        // cursorDot.style.left = e.clientX + 'px';
+        // cursorDot.style.top = e.clientY + 'px';
+        // cursorOutline.style.left = e.clientX + 'px';
+        // cursorOutline.style.top = e.clientY + 'px';
       } else
       {
         // Hide cursors if mouse is outside viewport
@@ -190,6 +199,8 @@ export const updateWeather = function ( lat, lon )
 
   if ( window.location.hash === "#/current-location" )
   {
+    searchResult.innerHTML = "";
+    searchField.value = "";
     currentLocationBtn.setAttribute( "disabled", "" );
   } else
   {
@@ -486,7 +497,6 @@ export const updateWeather = function ( lat, lon )
     /*video bacground */
 // === Change Background Video Based on Weather Description ===
 const videoElement = document.getElementById("weather-video");
-console.log(description);
 
 // Map weather descriptions to video filenames
 const weatherVideoMap = {
